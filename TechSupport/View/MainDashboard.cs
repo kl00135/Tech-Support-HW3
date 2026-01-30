@@ -1,4 +1,6 @@
-﻿namespace TechSupport.View
+﻿using TechSupport.View.Controls;
+
+namespace TechSupport.View
 {
     /// <summary>
     /// Represents the main dashboard form of the Tech Support application.
@@ -19,13 +21,18 @@
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void MainTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        private void mainTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (mainTabControl.SelectedTab == loadIncidentTabPage)
             {
-                loadIncidentsControl1.LoadIncidents();
+                loadIncidentsControl.LoadIncidents();
+            }
+            else if (mainTabControl.SelectedTab == displayIncidentsTabPage)
+            {
+                displayOpenIncidentsControl.LoadOpenIncidents();
             }
         }
+
 
         /// <summary>
         /// Logs out the current user.

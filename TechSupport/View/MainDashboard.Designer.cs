@@ -30,16 +30,19 @@
         {
             mainTabControl = new TabControl();
             addIncidentTabPage = new TabPage();
+            addIncidentControl = new TechSupport.View.Controls.addIncidentControl();
             logoutLinkLabel = new LinkLabel();
-            addIncidentControl1 = new TechSupport.View.Controls.addIncidentControl();
             loadIncidentTabPage = new TabPage();
-            loadIncidentsControl1 = new TechSupport.View.Controls.loadIncidentsControl();
+            loadIncidentsControl = new TechSupport.View.Controls.loadIncidentsControl();
             searchIncidentTabPage = new TabPage();
-            searchIncidentControl1 = new TechSupport.View.Controls.SearchIncidentControl();
+            searchIncidentControl = new TechSupport.View.Controls.SearchIncidentControl();
+            displayIncidentsTabPage = new TabPage();
+            displayOpenIncidentsControl = new TechSupport.View.Controls.DisplayOpenIncidentsControl();
             mainTabControl.SuspendLayout();
             addIncidentTabPage.SuspendLayout();
             loadIncidentTabPage.SuspendLayout();
             searchIncidentTabPage.SuspendLayout();
+            displayIncidentsTabPage.SuspendLayout();
             SuspendLayout();
             // 
             // mainTabControl
@@ -47,24 +50,33 @@
             mainTabControl.Controls.Add(addIncidentTabPage);
             mainTabControl.Controls.Add(loadIncidentTabPage);
             mainTabControl.Controls.Add(searchIncidentTabPage);
+            mainTabControl.Controls.Add(displayIncidentsTabPage);
             mainTabControl.Dock = DockStyle.Fill;
             mainTabControl.Location = new Point(0, 0);
             mainTabControl.Name = "mainTabControl";
             mainTabControl.SelectedIndex = 0;
             mainTabControl.Size = new Size(800, 450);
             mainTabControl.TabIndex = 0;
-            mainTabControl.SelectedIndexChanged += MainTabControl_SelectedIndexChanged;
+            mainTabControl.SelectedIndexChanged += mainTabControl_SelectedIndexChanged;
             // 
             // addIncidentTabPage
             // 
+            addIncidentTabPage.Controls.Add(addIncidentControl);
             addIncidentTabPage.Controls.Add(logoutLinkLabel);
-            addIncidentTabPage.Controls.Add(addIncidentControl1);
             addIncidentTabPage.Location = new Point(4, 24);
             addIncidentTabPage.Name = "addIncidentTabPage";
             addIncidentTabPage.Size = new Size(792, 422);
             addIncidentTabPage.TabIndex = 0;
             addIncidentTabPage.Text = "Add Incident";
             addIncidentTabPage.UseVisualStyleBackColor = true;
+            // 
+            // addIncidentControl
+            // 
+            addIncidentControl.Dock = DockStyle.Fill;
+            addIncidentControl.Location = new Point(0, 0);
+            addIncidentControl.Name = "addIncidentControl";
+            addIncidentControl.Size = new Size(792, 422);
+            addIncidentControl.TabIndex = 2;
             // 
             // logoutLinkLabel
             // 
@@ -77,17 +89,9 @@
             logoutLinkLabel.Text = "Logout";
             logoutLinkLabel.LinkClicked += LogoutLinkLabel_LinkClicked;
             // 
-            // addIncidentControl1
-            // 
-            addIncidentControl1.Dock = DockStyle.Fill;
-            addIncidentControl1.Location = new Point(0, 0);
-            addIncidentControl1.Name = "addIncidentControl1";
-            addIncidentControl1.Size = new Size(792, 422);
-            addIncidentControl1.TabIndex = 0;
-            // 
             // loadIncidentTabPage
             // 
-            loadIncidentTabPage.Controls.Add(loadIncidentsControl1);
+            loadIncidentTabPage.Controls.Add(loadIncidentsControl);
             loadIncidentTabPage.Location = new Point(4, 24);
             loadIncidentTabPage.Name = "loadIncidentTabPage";
             loadIncidentTabPage.Size = new Size(792, 422);
@@ -95,17 +99,17 @@
             loadIncidentTabPage.Text = "Load All Incidents";
             loadIncidentTabPage.UseVisualStyleBackColor = true;
             // 
-            // loadIncidentsControl1
+            // loadIncidentsControl
             // 
-            loadIncidentsControl1.Dock = DockStyle.Fill;
-            loadIncidentsControl1.Location = new Point(0, 0);
-            loadIncidentsControl1.Name = "loadIncidentsControl1";
-            loadIncidentsControl1.Size = new Size(792, 422);
-            loadIncidentsControl1.TabIndex = 0;
+            loadIncidentsControl.Dock = DockStyle.Fill;
+            loadIncidentsControl.Location = new Point(0, 0);
+            loadIncidentsControl.Name = "loadIncidentsControl";
+            loadIncidentsControl.Size = new Size(792, 422);
+            loadIncidentsControl.TabIndex = 0;
             // 
             // searchIncidentTabPage
             // 
-            searchIncidentTabPage.Controls.Add(searchIncidentControl1);
+            searchIncidentTabPage.Controls.Add(searchIncidentControl);
             searchIncidentTabPage.Location = new Point(4, 24);
             searchIncidentTabPage.Name = "searchIncidentTabPage";
             searchIncidentTabPage.Size = new Size(792, 422);
@@ -113,13 +117,32 @@
             searchIncidentTabPage.Text = "Search Incident";
             searchIncidentTabPage.UseVisualStyleBackColor = true;
             // 
-            // searchIncidentControl1
+            // searchIncidentControl
             // 
-            searchIncidentControl1.Dock = DockStyle.Fill;
-            searchIncidentControl1.Location = new Point(0, 0);
-            searchIncidentControl1.Name = "searchIncidentControl1";
-            searchIncidentControl1.Size = new Size(792, 422);
-            searchIncidentControl1.TabIndex = 0;
+            searchIncidentControl.Dock = DockStyle.Fill;
+            searchIncidentControl.Location = new Point(0, 0);
+            searchIncidentControl.Name = "searchIncidentControl";
+            searchIncidentControl.Size = new Size(792, 422);
+            searchIncidentControl.TabIndex = 0;
+            // 
+            // displayIncidentsTabPage
+            // 
+            displayIncidentsTabPage.Controls.Add(displayOpenIncidentsControl);
+            displayIncidentsTabPage.Location = new Point(4, 24);
+            displayIncidentsTabPage.Name = "displayIncidentsTabPage";
+            displayIncidentsTabPage.Padding = new Padding(3);
+            displayIncidentsTabPage.Size = new Size(792, 422);
+            displayIncidentsTabPage.TabIndex = 3;
+            displayIncidentsTabPage.Text = "Display Open Incidents";
+            displayIncidentsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // displayOpenIncidentsControl
+            // 
+            displayOpenIncidentsControl.Dock = DockStyle.Fill;
+            displayOpenIncidentsControl.Location = new Point(3, 3);
+            displayOpenIncidentsControl.Name = "displayOpenIncidentsControl";
+            displayOpenIncidentsControl.Size = new Size(786, 416);
+            displayOpenIncidentsControl.TabIndex = 0;
             // 
             // MainDashboard
             // 
@@ -137,6 +160,7 @@
             addIncidentTabPage.PerformLayout();
             loadIncidentTabPage.ResumeLayout(false);
             searchIncidentTabPage.ResumeLayout(false);
+            displayIncidentsTabPage.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -146,9 +170,16 @@
         private TabPage addIncidentTabPage;
         private TabPage loadIncidentTabPage;
         private TabPage searchIncidentTabPage;
+        private TabPage displayOpenIncidentsTabPage;
         private Controls.addIncidentControl addIncidentControl1;
         private Controls.loadIncidentsControl loadIncidentsControl1;
         private Controls.SearchIncidentControl searchIncidentControl1;
         private LinkLabel logoutLinkLabel;
+        private TabPage displayIncidentsTabPage;
+        private Controls.addIncidentControl addIncidentControl2;
+        private Controls.addIncidentControl addIncidentControl;
+        private Controls.loadIncidentsControl loadIncidentsControl;
+        private Controls.SearchIncidentControl searchIncidentControl;
+        private Controls.DisplayOpenIncidentsControl displayOpenIncidentsControl;
     }
 }
