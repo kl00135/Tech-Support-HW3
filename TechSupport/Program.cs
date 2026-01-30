@@ -1,7 +1,10 @@
 namespace TechSupport.View
 {
+
     internal static class Program
     {
+        private const string ConnectionString = @"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TechSupport;Integrated Security=True";
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -12,6 +15,6 @@ namespace TechSupport.View
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new LoginForm());
-        }
+    }
     }
 }
