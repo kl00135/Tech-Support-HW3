@@ -1,9 +1,11 @@
+using TechSupport.Controller;
+
 namespace TechSupport.View
 {
 
     internal static class Program
     {
-        private const string ConnectionString = @"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TechSupport;Integrated Security=True";
+        public static IncidentController IncidentController { get; private set; }
 
         /// <summary>
         ///  The main entry point for the application.
@@ -14,6 +16,7 @@ namespace TechSupport.View
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            IncidentController = new IncidentController(AppConfig.ConnectionString);
             Application.Run(new LoginForm());
     }
     }

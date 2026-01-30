@@ -8,7 +8,7 @@ namespace TechSupport.View
     /// <seealso cref="System.Windows.Forms.Form" />
     public partial class MainForm : Form
     {
-        private readonly IncidentController incidentController = new();
+        private readonly IncidentController incidentController = Program.IncidentController;
 
         /// <summary>
         /// Initializes a new instance of the MainForm.

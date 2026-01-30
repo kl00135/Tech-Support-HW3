@@ -5,7 +5,7 @@ namespace TechSupport.DAL
     /// <summary>
     /// Simulates data persistence for incidents.
     /// </summary>
-    public static class IncidentDal
+    public class IncidentDal
     {
         private static readonly List<Incident> incidents = new();
 

@@ -17,7 +17,7 @@ namespace TechSupport.View.Controls
         public loadIncidentsControl()
         {
             InitializeComponent();
-            incidentController = new IncidentController();
+            incidentController = Program.IncidentController;
         }
 
         /// <summary>

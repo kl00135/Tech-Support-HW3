@@ -18,7 +18,7 @@ namespace TechSupport.View.Controls
         public addIncidentControl()
         {
             InitializeComponent();
-            incidentController = new IncidentController();
+            incidentController = Program.IncidentController;
         }
         /// <summary>
         /// Handles the Load event of the addIncidentControl control.

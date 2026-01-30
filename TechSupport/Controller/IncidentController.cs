@@ -1,4 +1,5 @@
 ﻿using TechSupport.DAL;
+using TechSupport.DBAccess;
 using TechSupport.Model;
 
 
@@ -10,8 +11,19 @@ namespace TechSupport.Controller
     /// Handles business logic related to incidents.
     /// </summary>
     public class IncidentController
-
     {
+        private readonly IncidentDal _incidentDAL;
+        private readonly IncidentDBDAL _incidentDBDAL;
+
+        /// <summary>
+        /// Initializes InicdentDal which is in memory, or IncidentDBDAL which connects to the database.
+        /// </summary>
+        /// <param name="connectionString">The connection string.</param>
+        public IncidentController(string connectionString)
+        {
+            _incidentDAL = new IncidentDal();
+            _incidentDBDAL = new IncidentDBDAL(connectionString);
+        }
 
         /// <summary>
         /// Retrieves all incidents.
@@ -40,6 +52,16 @@ namespace TechSupport.Controller
             return IncidentDal.GetAll()
                 .Where(i => i.CustomerId == customerId)
                 .ToList();
+        }
+
+
+        /// <summary>
+        /// Gets the open incidents from DB.
+        /// </summary>
+        /// <returns></returns>
+        public List<OpenIncident> GetOpenIncidents()
+        {
+            return _incidentDBDAL.GetOpenIncidents();
         }
 
     }

@@ -17,7 +17,7 @@ namespace TechSupport.View.Controls
         public SearchIncidentControl()
         {
             InitializeComponent();
-            incidentController = new IncidentController();
+            incidentController = Program.IncidentController;
         }
 
         /// <summary>
