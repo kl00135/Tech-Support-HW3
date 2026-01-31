@@ -24,9 +24,12 @@ namespace TechSupport.DBAccess
         /// </summary>
         public List<OpenIncident> GetOpenIncidents()
         {
-            var incidents = new List<OpenIncident>();
+            List<OpenIncident> incidents = new List<OpenIncident>();
+            try
+            {
+                using SqlConnection connection = new SqlConnection(_connectionString);
 
-            string query = @"
+                string sql = @"
                 SELECT 
                     i.IncidentID,
                     c.Name AS CustomerName,
@@ -40,25 +43,31 @@ namespace TechSupport.DBAccess
                 WHERE i.DateClosed IS NULL
                 ORDER BY i.DateOpened";
 
-            using SqlConnection connection = new SqlConnection(_connectionString);
-            using SqlCommand command = new SqlCommand(query, connection);
+                using SqlCommand command = new SqlCommand(sql, connection);
 
-            connection.Open();
+                connection.Open();
 
-            using SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                incidents.Add(new OpenIncident
+                using SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    IncidentID = reader.GetInt32(0),
-                    CustomerName = reader.GetString(1),
-                    ProductCode = reader.GetString(2),
-                    TechnicianName = reader.IsDBNull(3) ? "Unassigned" : reader.GetString(3),
-                    DateOpened = reader.GetDateTime(4),
-                    Title = reader.GetString(5)
-                });
+                    incidents.Add(new OpenIncident
+                    {
+                        IncidentID = reader.GetInt32(0),
+                        CustomerName = reader.GetString(1),
+                        ProductCode = reader.GetString(2),
+                        TechnicianName = reader.IsDBNull(3) ? "Unassigned" : reader.GetString(3),
+                        DateOpened = reader.GetDateTime(4),
+                        Title = reader.GetString(5)
+                    });
+                }
+
             }
 
+            catch (SqlException ex)
+            {
+                // Log exception (not implemented here)
+                throw new ApplicationException("An error occurred while retrieving open incidents.", ex);
+            }
             return incidents;
         }
     }

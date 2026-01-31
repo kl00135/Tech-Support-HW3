@@ -26,21 +26,30 @@ namespace TechSupport.View.Controls
         /// </summary>
         public void LoadOpenIncidents()
         {
-            openIncidentsListView.Items.Clear();
-            var incidents = _controller.GetOpenIncidents();
-
-            
-
-            foreach (var incident in incidents)
+            try
             {
-                ListViewItem item = new ListViewItem(incident.IncidentID.ToString());
-                item.SubItems.Add(incident.Title);
-                item.SubItems.Add(incident.CustomerName);
-                item.SubItems.Add(incident.ProductCode);
-                item.SubItems.Add(incident.TechnicianName);
-                item.SubItems.Add(incident.DateOpened.ToShortDateString());
-                openIncidentsListView.Items.Add(item);
+                openIncidentsListView.Items.Clear();
+                var incidents = _controller.GetOpenIncidents();
+
+
+
+                foreach (var incident in incidents)
+                {
+                    ListViewItem item = new ListViewItem(incident.IncidentID.ToString());
+                    item.SubItems.Add(incident.Title);
+                    item.SubItems.Add(incident.CustomerName);
+                    item.SubItems.Add(incident.ProductCode);
+                    item.SubItems.Add(incident.TechnicianName);
+                    item.SubItems.Add(incident.DateOpened.ToShortDateString());
+                    openIncidentsListView.Items.Add(item);
+                }
             }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading open incidents: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

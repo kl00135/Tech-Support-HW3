@@ -61,7 +61,15 @@ namespace TechSupport.Controller
         /// <returns></returns>
         public List<OpenIncident> GetOpenIncidents()
         {
-            return _incidentDBDAL.GetOpenIncidents();
+            try
+            {
+                return _incidentDBDAL.GetOpenIncidents();
+            }
+            catch (Exception)
+            {
+                throw new ApplicationException("An error occurred while retrieving open incidents.");
+            }
+
         }
 
     }
