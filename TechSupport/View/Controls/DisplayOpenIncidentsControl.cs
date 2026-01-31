@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-using TechSupport.Controller;
+﻿using TechSupport.Controller;
 
 namespace TechSupport.View.Controls
 {
