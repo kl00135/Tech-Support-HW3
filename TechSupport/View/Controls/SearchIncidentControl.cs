@@ -40,6 +40,9 @@ namespace TechSupport.View.Controls
             if (!int.TryParse(customerIdTextBox.Text, out int customerId))
             {
                 customerIdErrorLabel.Text = "Customer ID must be a number.";
+                customerIdErrorLabel.Visible = true;
+                customerIdErrorLabel.BringToFront();
+                customerIdErrorLabel.Refresh();
                 return;
             }
 

@@ -63,6 +63,7 @@
             errorMessageLabel.Size = new Size(152, 15);
             errorMessageLabel.TabIndex = 2;
             errorMessageLabel.Text = "Invalid username/password";
+            errorMessageLabel.Visible = false;
             // 
             // usernameTextBox
             // 

@@ -34,7 +34,7 @@ namespace TechSupport.View
         /// </summary>
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            customerIdErrorLabel.Text = string.Empty;
+            
             searchResultsDataGridView.DataSource = null;
 
             if (!int.TryParse(customerIdTextBox.Text, out int customerId))

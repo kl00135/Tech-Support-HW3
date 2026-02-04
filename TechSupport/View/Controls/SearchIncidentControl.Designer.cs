@@ -32,8 +32,8 @@
             closeButton = new Button();
             searchButton = new Button();
             customerIdTextBox = new TextBox();
-            customerIdErrorLabel = new Label();
             customerIdLabel = new Label();
+            customerIdErrorLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)searchResultsDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -77,17 +77,6 @@
             customerIdTextBox.TabIndex = 8;
             customerIdTextBox.TextChanged += CustomerIdTextBox_TextChanged;
             // 
-            // customerIdErrorLabel
-            // 
-            customerIdErrorLabel.AutoSize = true;
-            customerIdErrorLabel.ForeColor = Color.Red;
-            customerIdErrorLabel.Location = new Point(301, 40);
-            customerIdErrorLabel.Name = "customerIdErrorLabel";
-            customerIdErrorLabel.Size = new Size(179, 15);
-            customerIdErrorLabel.TabIndex = 7;
-            customerIdErrorLabel.Text = "Customer ID must be an interger";
-            customerIdErrorLabel.TextChanged += CustomerIdTextBox_TextChanged;
-            // 
             // customerIdLabel
             // 
             customerIdLabel.AutoSize = true;
@@ -97,15 +86,26 @@
             customerIdLabel.TabIndex = 6;
             customerIdLabel.Text = "Customer ID:";
             // 
+            // customerIdErrorLabel
+            // 
+            customerIdErrorLabel.AutoSize = true;
+            customerIdErrorLabel.ForeColor = Color.Red;
+            customerIdErrorLabel.Location = new Point(301, 40);
+            customerIdErrorLabel.Name = "customerIdErrorLabel";
+            customerIdErrorLabel.Size = new Size(176, 15);
+            customerIdErrorLabel.TabIndex = 12;
+            customerIdErrorLabel.Text = "Customer ID must be a number.";
+            customerIdErrorLabel.Visible = false;
+            // 
             // SearchIncidentControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(customerIdErrorLabel);
             Controls.Add(searchResultsDataGridView);
             Controls.Add(closeButton);
             Controls.Add(searchButton);
             Controls.Add(customerIdTextBox);
-            Controls.Add(customerIdErrorLabel);
             Controls.Add(customerIdLabel);
             Name = "SearchIncidentControl";
             Size = new Size(737, 550);
@@ -119,7 +119,7 @@
         private Button closeButton;
         private Button searchButton;
         private TextBox customerIdTextBox;
-        private Label customerIdErrorLabel;
         private Label customerIdLabel;
+        private Label customerIdErrorLabel;
     }
 }

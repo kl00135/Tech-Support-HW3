@@ -70,6 +70,7 @@
             customerIdErrorLabel.Size = new Size(178, 15);
             customerIdErrorLabel.TabIndex = 19;
             customerIdErrorLabel.Text = "Customer ID must be an integer.";
+            customerIdErrorLabel.Visible = false;
             // 
             // descriptionErrorLabel
             // 
@@ -80,6 +81,7 @@
             descriptionErrorLabel.Size = new Size(128, 15);
             descriptionErrorLabel.TabIndex = 18;
             descriptionErrorLabel.Text = "Description is required.";
+            descriptionErrorLabel.Visible = false;
             // 
             // titleErrorLabel
             // 
@@ -90,6 +92,7 @@
             titleErrorLabel.Size = new Size(90, 15);
             titleErrorLabel.TabIndex = 17;
             titleErrorLabel.Text = "Title is required.";
+            titleErrorLabel.Visible = false;
             // 
             // customerIdTextBox
             // 

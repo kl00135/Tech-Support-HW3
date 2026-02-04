@@ -64,6 +64,7 @@ namespace TechSupport
             else
             {
                 errorMessageLabel.Text = "Invalid username/password";
+                errorMessageLabel.Visible = true;
             }
 
         }

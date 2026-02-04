@@ -84,18 +84,21 @@ namespace TechSupport.View.Controls
             {
                 titleErrorLabel.Text = "Title is required.";
                 isValid = false;
+                titleErrorLabel.Visible = true;
             }
 
             if (string.IsNullOrWhiteSpace(descriptionTextBox.Text))
             {
                 descriptionErrorLabel.Text = "Description is required.";
                 isValid = false;
+                descriptionErrorLabel.Visible = true;
             }
 
             if (!int.TryParse(customerIdTextBox.Text, out int customerId))
             {
                 customerIdErrorLabel.Text = "Customer ID must be a number.";
                 isValid = false;
+                customerIdErrorLabel.Visible = true;
             }
 
             if (!isValid)

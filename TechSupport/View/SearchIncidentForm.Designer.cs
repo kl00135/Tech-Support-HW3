@@ -55,6 +55,7 @@
             customerIdErrorLabel.Size = new Size(179, 15);
             customerIdErrorLabel.TabIndex = 1;
             customerIdErrorLabel.Text = "Customer ID must be an interger";
+            customerIdErrorLabel.Visible = false;
             // 
             // customerIdTextBox
             // 
